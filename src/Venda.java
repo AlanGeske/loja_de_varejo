@@ -8,4 +8,5 @@ public class Venda {
     public String notaFiscal;
     public LocalDate dataDeVenda;
     public Produto produto;
+    public String codigoVenda;
 }

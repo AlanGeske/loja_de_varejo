@@ -45,7 +45,6 @@ public class App {
         henrique.nome = "Henrique Soares";
         henrique.telefone = "55 51 6 66666 6666";
 
-
         // System.out.println(joao.nome);
         // System.out.println(marcos.nome);
         
@@ -54,13 +53,13 @@ public class App {
         Produto produto1 = new Produto();
         Produto produto2 = new Produto();
 
-
         venda1.modeloPagamento = "Cartão de Crédito";
         venda1.quantidadeProduto = 10;
         venda1.valorProdutoVendido = 60;
         venda1.valorTotalVenda = (venda1.valorProdutoVendido * venda1.quantidadeProduto);
         venda1.notaFiscal = "1222";
         venda1.dataDeVenda = LocalDate.of(2021, 10, 27);
+        venda1.codigoVenda = "123";
 
         venda2.modeloPagamento = "Dinheiro";
         venda2.dataDeVenda = LocalDate.of(2021, 10, 27);
@@ -68,7 +67,8 @@ public class App {
         venda2.quantidadeProduto = 2;
         venda2.valorProdutoVendido = 1200;
         venda2.valorTotalVenda = (venda2.quantidadeProduto * venda2.valorProdutoVendido); 
-
+        venda2.codigoVenda = "12344";
+        
         produto1.tipoProduto = "cama";
         produto1.codigoProduto = "123123-5";
         produto1.corProduto = "Azul";
@@ -89,18 +89,13 @@ public class App {
         lais.venda = venda2;
         henrique.venda = venda2;
 
-        
+        String vendaClienteMarcos =  String.format("O cliente %s, na data %s, realizou a compra no %s, do produto %s, comprando %s unidades deste produto, cada produto a %s Reais, com o preco total sendo %s Reais, gerando a nota fiscal número %s e o código de compra %s. ", marcos.nome, venda1.dataDeVenda, venda1.modeloPagamento, produto1.nomeProduto,venda1.quantidadeProduto, venda1.valorProdutoVendido, venda1.valorTotalVenda, venda1.notaFiscal, venda1.codigoVenda);
 
-        
+        String vendaVendedorJoao = String.format(" O vendedor %s, efetuou a venda para o cliente %s, na data %s, recebendo uma comissão de %s em cima da venda, gerando a nota fiscal %s e o código de venda %s. ", joao.nome, marcos.nome, venda1.dataDeVenda, joao.comissaoVenda, joao.venda.notaFiscal, venda1.codigoVenda);
 
-        String vendaClienteMarcos =  String.format("O cliente %s, na data %s, realizou a compra no %s, do produto %s, comprando %s unidades deste produto, cada produto a %s Reais, com o preco total sendo %s Reais, gerando a nota fiscal número %s. ", marcos.nome, venda1.dataDeVenda, venda1.modeloPagamento, produto1.nomeProduto,venda1.quantidadeProduto, venda1.valorProdutoVendido, venda1.valorTotalVenda, venda1.notaFiscal);
+        String vendaClienteHenrique = String.format("O cliente %s, portador do cpf %s, na data %s, realizou a compra no %s, comprando o produto %s, solicitando %s unidades do produto, cada produto a %s, com o preco total sendo %s Reais, gerando a nota fiscal %s e o código de compra %s.", henrique.nome, henrique.cpf, venda2.dataDeVenda ,venda2.modeloPagamento, produto2.nomeProduto, venda2.quantidadeProduto, venda2.valorProdutoVendido, venda2.valorTotalVenda, venda2.notaFiscal, venda2.codigoVenda);
 
-        String vendaVendedorJoao = String.format(" O vendedor %s, efetuou a venda para o cliente %s, na data %s, recebendo uma comissão de %s em cima da venda, gerando a nota fiscal %s. ", joao.nome, marcos.nome, venda1.dataDeVenda, joao.comissaoVenda, joao.venda.notaFiscal);
-
-
-        String vendaClienteHenrique = String.format("O cliente %s, portador do cpf %s, na data %s, realizou a compra no %s, comprando o produto %s, solicitando %s unidades do produto, cada produto a %s, com o preco total sendo %s Reais, gerando a nota fiscal %s", henrique.nome, henrique.cpf, venda2.dataDeVenda ,venda2.modeloPagamento, produto2.nomeProduto, venda2.quantidadeProduto, venda2.valorProdutoVendido, venda2.valorTotalVenda, venda2.notaFiscal);
-
-        String vendaVendedoraLais = String.format(" A vendedora %s, efetuou a venda para o cliente %s, na data %s, recebendo uma comissão de %s em cima da venda,  com o valor total de venda sendo de %s, gerando a nota fiscal %s.  ", lais.nome, henrique.nome, venda2.dataDeVenda, lais.comissaoVenda, venda2.valorTotalVenda, venda2.notaFiscal );
+        String vendaVendedoraLais = String.format(" A vendedora %s, efetuou a venda para o cliente %s, na data %s, recebendo uma comissão de %s em cima da venda,  com o valor total de venda sendo de %s, gerando a nota fiscal %s e o código de venda %s.  ", lais.nome, henrique.nome, venda2.dataDeVenda, lais.comissaoVenda, venda2.valorTotalVenda, venda2.notaFiscal, venda2.codigoVenda );
       
         System.out.println(vendaClienteMarcos);
         System.out.println();
@@ -109,9 +104,6 @@ public class App {
         System.out.println(vendaClienteHenrique);
         System.out.println();
         System.out.println(vendaVendedoraLais);
-        
-
-
         
 
     }
